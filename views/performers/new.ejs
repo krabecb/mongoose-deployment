@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+
+<section>
+  <h2>All Performers</h2>
+  <% if(performers && performers.length){ %>
+  <ul>
+    <% performers.forEach(p => { %>
+    <li><%= p.name %> </li>
+    <% }) %>
+  </ul>
+
+  <% } else { %>
+  <p>No performers yet... add one below!</p>
+  <% } %>
+  <br />
+</section>
+
+<section>
+  <form action="/performers" method="POST">
+    <!-- fields in model: name (required, unique), born (date, no default value) -->
+    <div>
+      <label for="name">Performer name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="provide a new performer name"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="born">Born date</label>
+      <input type="date" name="born" id="born" />
+    </div>
+
+    <button type="submit">Add Performer</button>
+  </form>
+
+  <p><%=errorMsg%></p>
+  
+</section>
+<%- include('../partials/footer') %>
