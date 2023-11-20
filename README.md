@@ -39,63 +39,9 @@
 
 This lesson will finalize mongoose-movies!
 
-The starter code for this lesson begins where the Mongoose Queries Lab left off (which also seeded the database with some Movies and performers).
+The starter code for this lesson begins where the Mongoose Referenced Data lesson left off (which also seeded the database with some Movies and performers).
 
 You only have to sync if your code is complete or is not working.
-
-1. Move into the `mongoose-movies` project we started in the Intro to Mongoose lesson:
-    ```
-    cd ~/code/mongoose-movies
-    ```
-2. Again, you only have to sync if your code is complete or is not working:
-    ```
-    git reset --hard origin/sync-15-finish-seeding-query-lab
-    ```
-3. Open the project's folder in VS Code:
-    ```
-    code .
-    ```
-4. Open an integrated terminal session:
-    ```
-    control + backtick
-    ```
-5. Start the Express server:
-    ```
-    nodemon
-    ```
-6. Browse to `localhost:3000`
-
-### Remove Any Existing Reviews
-
-The upcoming user-centric change that's going to be made to the `reviewSchema` will prevent being able to add new reviews to any movie that currently has existing reviews (because they won't conform to the new schema).
-
-Therefore, we need to clear out the `reviews` array exactly how/why we needed to clear out the `cast` array during the referencing lesson.
-
-1. Open a new Node REPL:
-
-```
-node
-```
-
-2. Load crud-helper.js:
-
-```
-.load crud-helper.js
-```
-
-3. Run the following command to clear out all reviews:
-
-```
-Movie.updateMany({},  { reviews: [] }).then(console.log)
-```
-
-4. Exit the REPL:
-
-```
-.exit
-```
-
-Now back to our regularly scheduled programming...
 
 ## 2. Intro to Authentication
 
@@ -112,8 +58,9 @@ Authentication is what enables an application to know the **identity** of the pe
 In SEI, we're going to learn 3 types of **authentication**:
 
 - **Unit 2**: Logging in via a third-party provider (OAuth)
-- **Unit 3**: Session-based username/password login
-- **Unit 4**: Token-based username/password login
+- **Unit 3**: Token-based username/password login (AuthO)
+- **Unit 4**: Session-based username/password login
+
 
 ### Authentication vs. Authorization
 
