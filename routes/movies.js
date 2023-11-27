@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const moviesCtrl = require('../controllers/movies')
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 
 // http:localhost:3000/movies 
@@ -12,7 +13,7 @@ const moviesCtrl = require('../controllers/movies')
 
 
 /* GET new movie view. */
-router.get('/new', moviesCtrl.new)
+router.get('/new', ensureLoggedIn, moviesCtrl.new)
 
 /* GET movies show view. */
 router.get('/:id', moviesCtrl.show)
@@ -21,6 +22,6 @@ router.get('/:id', moviesCtrl.show)
 router.get('/', moviesCtrl.index)
 
 /* GET movies create. */
-router.post('/', moviesCtrl.create)
+router.post('/', ensureLoggedIn, moviesCtrl.create)
 
 module.exports = router;
