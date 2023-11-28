@@ -14,5 +14,6 @@ router.post('/movies/:id/reviews', reviewsCtrl.create)
 
 // 2. create a post request for endpoint >> /movies/:id/reviews
 
+router.delete('/reviews/:id', reviewsCtrl.delete);
 
 module.exports = router
